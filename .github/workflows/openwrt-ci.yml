@@ -67,6 +67,8 @@ jobs:
 
       - name: Update feeds
         run: |
+          echo 'src-git helloworld https://github.com/fw876/helloworld' >> ./feeds.conf.default
+          sed -i 's/\"#src-git\"/\"src-git\"/g' ./feeds.conf.default
           ./scripts/feeds update -a
           ./scripts/feeds install -a
 
@@ -141,9 +143,15 @@ jobs:
           CONFIG_PACKAGE_luci-app-unblockmusic=y
           # CONFIG_PACKAGE_luci-app-v2ray-server=y
           # CONFIG_PACKAGE_luci-app-verysync=y
-          # CONFIG_PACKAGE_luci-app-webadmin=y
+          CONFIG_PACKAGE_luci-app-webadmin=y
           # CONFIG_PACKAGE_luci-app-wireguard=y
           # CONFIG_PACKAGE_luci-app-wrtbwmon=y
+          # CONFIG_PACKAGE_luci-app-wol=y
+          # CONFIG_PACKAGE_luci-app-samba=y
+          # CONFIG_PACKAGE_luci-app-vlmcsd=y
+          # CONFIG_PACKAGE_luci-app-vsftpd=y
+          # CONFIG_PACKAGE_luci-app-xlnetacc=y
+          # CONFIG_PACKAGE_luci-app-ipsec-vpnd=y
           EOF
 
           # LuCI主题:
@@ -175,6 +183,12 @@ jobs:
 
           sed -i 's/^[ \t]*//g' ./.config
           make defconfig
+
+          # 网络配置信息，将从 zzz-default-settings 文件的第2行开始添加
+          sed -i "2i # network config" ./package/lean/default-settings/files/zzz-default-settings
+          # 默认 IP 地址，旁路由时不会和主路由的 192.168.1.1 冲突
+          sed -i "3i uci set network.lan.ipaddr='192.168.2.252'" ./package/lean/default-settings/files/zzz-default-settings
+          sed -i "4i uci set network.lan.proto='static'" ./package/lean/default-settings/files/zzz-default-settings
 
       - name: Make download
         run: |

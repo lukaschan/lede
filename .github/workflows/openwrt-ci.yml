@@ -147,12 +147,12 @@ jobs:
           CONFIG_PACKAGE_luci-app-webadmin=y
           # CONFIG_PACKAGE_luci-app-wireguard=y
           # CONFIG_PACKAGE_luci-app-wrtbwmon=y
-          # CONFIG_PACKAGE_luci-app-wol=y
-          # CONFIG_PACKAGE_luci-app-samba=y
-          # CONFIG_PACKAGE_luci-app-vlmcsd=y
-          # CONFIG_PACKAGE_luci-app-vsftpd=y
-          # CONFIG_PACKAGE_luci-app-xlnetacc=y
-          # CONFIG_PACKAGE_luci-app-ipsec-vpnd=y
+          CONFIG_PACKAGE_luci-app-wol=n
+          CONFIG_PACKAGE_luci-app-samba=n
+          CONFIG_PACKAGE_luci-app-vlmcsd=n
+          CONFIG_PACKAGE_luci-app-vsftpd=n
+          CONFIG_PACKAGE_luci-app-xlnetacc=n
+          CONFIG_PACKAGE_luci-app-ipsec-vpnd=n
           EOF
 
           # LuCI主题:

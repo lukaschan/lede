@@ -64,7 +64,7 @@ jobs:
           mkdir openwrt-packages
           cd openwrt-packages
           git clone https://github.com/apollo-ng/luci-theme-darkmatter.git
-          git clone https://github.com/kenzok8/openwrt-packages.git
+          # git clone https://github.com/kenzok8/openwrt-packages.git
 
       - name: Update feeds
         run: |
@@ -93,9 +93,9 @@ jobs:
           EOF
 
           # 编译UEFI固件:
-          # cat >> .config <<EOF
-          # CONFIG_EFI_IMAGES=y
-          # EOF
+          cat >> .config <<EOF
+          CONFIG_EFI_IMAGES=n
+          EOF
 
           # IPv6支持:
           cat >> .config <<EOF
@@ -153,7 +153,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-vsftpd=n
           CONFIG_PACKAGE_luci-app-xlnetacc=n
           CONFIG_PACKAGE_luci-app-ipsec-vpnd=n
-          CONFIG_PACKAGE_luci-app-adguardhome=y
+          CONFIG_PACKAGE_luci-app-adguardhome=n
           EOF
 
           # LuCI主题:

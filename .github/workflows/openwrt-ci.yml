@@ -70,6 +70,9 @@ jobs:
         run: |
           echo 'src-git helloworld https://github.com/fw876/helloworld' >> ./feeds.conf.default
           sed -i 's/\"#src-git\"/\"src-git\"/g' ./feeds.conf.default
+          echo 'src-git darkmatter git://github.com/apollo-ng/luci-theme-darkmatter.git' >> ./feeds.conf.default
+          ./scripts/feeds update darkmatter
+          ./scripts/feeds install luci-theme-darkmatter
           ./scripts/feeds update -a
           ./scripts/feeds install -a
 

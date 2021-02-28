@@ -155,6 +155,8 @@ jobs:
           CONFIG_PACKAGE_luci-app-xlnetacc=n
           CONFIG_PACKAGE_luci-app-ipsec-vpnd=n
           CONFIG_PACKAGE_luci-app-adguardhome=n
+          CONFIG_PACKAGE_luci-app-jd-dailybonus=n
+          CONFIG_PACKAGE_luci-app-uugamebooster=n
           EOF
 
           # LuCI主题:

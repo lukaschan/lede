@@ -157,6 +157,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-adguardhome=n
           CONFIG_PACKAGE_luci-app-jd-dailybonus=n
           CONFIG_PACKAGE_luci-app-uugamebooster=n
+          CONFIG_PACKAGE_luci-app-ddns=n
           EOF
 
           # LuCI主题:

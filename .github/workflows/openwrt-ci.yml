@@ -63,7 +63,8 @@ jobs:
           cd package
           mkdir openwrt-packages
           cd openwrt-packages
-          git clone https://github.com/apollo-ng/luci-theme-darkmatter.git
+          git clone https://github.com/apollo-ng/luci-theme-darkmatter.git          
+          git clone https://github.com/cnsilvan/luci-app-unblockneteasemusic.git
           # git clone https://github.com/kenzok8/openwrt-packages.git
 
       - name: Update feeds
@@ -71,6 +72,7 @@ jobs:
           echo 'src-git helloworld https://github.com/fw876/helloworld' >> ./feeds.conf.default
           sed -i 's/\"#src-git\"/\"src-git\"/g' ./feeds.conf.default
           echo 'src-git darkmatter git://github.com/apollo-ng/luci-theme-darkmatter.git' >> ./feeds.conf.default
+          echo 'src-git unblockneteasemusic https://github.com/cnsilvan/luci-app-unblockneteasemusic.git' >> ./feeds.conf.default
           ./scripts/feeds update -a
           ./scripts/feeds install -a
 
@@ -142,7 +144,9 @@ jobs:
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray=y
           CONFIG_PACKAGE_luci-app-ttyd=y
           CONFIG_PACKAGE_luci-app-zerotier=y
-          CONFIG_PACKAGE_luci-app-unblockmusic=y
+          CONFIG_PACKAGE_luci-app-unblockmusic=n
+          CONFIG_PACKAGE_UnblockNeteaseMusic=y
+          CONFIG_PACKAGE_luci-app-unblockneteasemusic=y
           # CONFIG_PACKAGE_luci-app-v2ray-server=y
           # CONFIG_PACKAGE_luci-app-verysync=y
           CONFIG_PACKAGE_luci-app-webadmin=y

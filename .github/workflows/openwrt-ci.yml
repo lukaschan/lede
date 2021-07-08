@@ -67,6 +67,7 @@ jobs:
           git clone https://github.com/immortalwrt/luci-app-unblockneteasemusic.git
           git clone https://github.com/cnsilvan/UnblockNeteaseMusic.git
           git clone https://github.com/kenzok8/openwrt-packages.git
+          git clone https://github.com/AdguardTeam/AdGuardHome
 
       - name: Update feeds
         run: |
@@ -75,6 +76,7 @@ jobs:
           echo 'src-git darkmatter git://github.com/apollo-ng/luci-theme-darkmatter.git' >> ./feeds.conf.default
           echo 'src-git unblocknetease https://github.com/immortalwrt/luci-app-unblockneteasemusic.git' >> ./feeds.conf.default
           echo 'src-git unblockneteasemusic https://github.com/cnsilvan/UnblockNeteaseMusic.git' >> ./feeds.conf.default
+          echo 'src-git AdGuardHome https://github.com/AdguardTeam/AdGuardHome.git' >> ./feeds.conf.default
           ./scripts/feeds update -a
           ./scripts/feeds install -a
 
@@ -160,7 +162,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-vsftpd=n
           CONFIG_PACKAGE_luci-app-xlnetacc=n
           CONFIG_PACKAGE_luci-app-ipsec-vpnd=n
-          CONFIG_PACKAGE_Adguardhome=y         
+          CONFIG_PACKAGE_AdGuardHome=y         
           CONFIG_PACKAGE_luci-app-adguardhome=y
           CONFIG_PACKAGE_luci-app-jd-dailybonus=n
           CONFIG_PACKAGE_luci-app-uugamebooster=n
